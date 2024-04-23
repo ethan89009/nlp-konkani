@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json())
 
+app.get("/",(req,res)=>{
+    res.send("Hello!")
+})
+
 app.post("/translate",async (req,res)=>{
     const textToTranslate =  req.body.text
     getTranslation(res,textToTranslate)
