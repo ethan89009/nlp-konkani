@@ -5,7 +5,6 @@ const getTranslation = async (res,textToTranslate)=>{
 
     const browser = await puppeteer.launch({
         args:[
-            "",
             "--disable-setuid-sandbox",
             "--no-sandbox",
             "--single-process",
