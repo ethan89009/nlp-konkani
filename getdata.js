@@ -1,8 +1,12 @@
 const puppeteer = require("puppeteer");
+const { executablePath } = require("puppeteer/lib/types");
 
 const getTranslation = async (res,textToTranslate)=>{
 
     const browser = await puppeteer.launch({
+        executablePath : process.env.NODE_ENV === "production" ? 
+        process.env.PUPPETEER_EXECUTABLE_PATH
+        :puppeteer.executablePath(),
         headless: true,
       });
 
