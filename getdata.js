@@ -1,9 +1,16 @@
 const puppeteer = require("puppeteer");
-const { executablePath } = require("puppeteer/lib/types");
+require("dotenv").config();
 
 const getTranslation = async (res,textToTranslate)=>{
 
     const browser = await puppeteer.launch({
+        args:[
+            "",
+            "--disable-setuid-sandbox",
+            "--no-sandbox",
+            "--single-process",
+            "--no-zygote"
+        ],
         executablePath : process.env.NODE_ENV === "production" ? 
         process.env.PUPPETEER_EXECUTABLE_PATH
         :puppeteer.executablePath(),
